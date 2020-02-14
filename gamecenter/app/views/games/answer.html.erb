@@ -1,0 +1,46 @@
+<h1>Games#answer</h1>
+<p>Find me in app/views/games/answer.html.erb</p>
+
+<h1>魔女の部屋です。</h1>
+
+<%= image_tag 'game1.png', :size =>'100x100'%>
+
+<h3>魔女が現れた。</h2>
+<h3>1-5の間で、好きな数字を答えよう！</h2>
+<h4>数字を答える</h3>
+
+  <form id="form1" action="#">
+    <input type="text" id="input_message" value="">
+    <input type="button" onclick="game1()" value="送信">
+  </form>
+  <div id="complain"></div>
+  <div id="answer"></div>
+
+<script>
+  function game1() {
+    var input_message = document.getElementById("input_message").value;
+    input_message = "あなたは「" + input_message + "」を宣言した。";
+    // ここで終わるとinputメッセージが更新される
+    input_message = document.getElementById("input_message").value;
+    // こうやってもう一回宣言しなおさないと
+    document.getElementById("complain").innerHTML = input_message;
+    // 理解した。HTMLの部分を変えて出力している
+
+    var number = Math.floor(Math.random() * 6);
+    var answer = parseInt(input_message,10);
+    var message;
+
+    if(answer === number) {
+    message = '「当てられてしまったわ・・・！」魔女を倒した。';
+    } else if(answer < number) {
+    message = '残念でした！もっと大きいわ！';
+    message += ' → 正解は' + number;
+} else if(answer > number) {
+    message = '残念でした！もっと小さいわ！';
+    message += ' → 正解は' + number;
+} else {
+    message = '0〜5の数字を入力してね。';
+}
+    document.getElementById("answer").innerHTML = message;
+   }
+</script>

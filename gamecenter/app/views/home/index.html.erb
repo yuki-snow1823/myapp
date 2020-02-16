@@ -1,4 +1,9 @@
-<h1>魔王城入り口</h1>
-
-<%= link_to "突入する", new_user_session_path %>
-<%= link_to "メンバーに加入する", new_user_registration_path %>
+<div class="container">
+  <div class="row">
+      <h1 class="col-6 text-center">魔王城入り口</h1>
+  </div>
+  <div class="row">
+    <div class="col-4 text-center"><%= link_to "突入する", new_user_session_path %></div>
+    <div class="col-4 text-center"><%= link_to "新規登録", new_user_registration_path %></div>
+  </div>
+</div>

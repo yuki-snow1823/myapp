@@ -1,17 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<h1>宿泊所</h1>
-
+<% if @user.id == current_user.id %>
+<h1>宿屋</h1>
 <h2>ステータス</h2>
+<% end %>
 
 <p>名前： <%= @user.name %></p><br>
 <%= attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%>
-<p>連絡先： <%= @user.email %></p>
 <P>自己紹介：<%= @user.introduction %></p> 
-<%= link_to "プロフィール編集", edit_user_path %>
 
-<p>違うゲームに行くリンク「魔王と戦う」みたいにしたい。ボタンで</p>
 
-<%= link_to "魔女と戦う", games_answer_path %>
-<%= link_to "魔王と戦う", games_push_path %>
+<% if @user.id == current_user.id %>
+  <%= link_to "プロフィール編集", edit_user_path %>
+  <%= link_to "魔女と戦う", games_answer_path %>
+  <%= link_to "悪魔と戦う", games_push_path %>
+<% end %>

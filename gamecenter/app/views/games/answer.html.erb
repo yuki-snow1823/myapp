@@ -19,11 +19,11 @@
 <script>
   function game1() {
     var input_message = document.getElementById("input_message").value;
-    input_message = "あなたは「" + input_message + "」を宣言した。";
+    // input_message = "あなたは「" + input_message + "」を宣言した。";
     // ここで終わるとinputメッセージが更新される
     input_message = document.getElementById("input_message").value;
     // こうやってもう一回宣言しなおさないと
-    document.getElementById("complain").innerHTML = input_message;
+    document.getElementById("complain").innerHTML = "「あなたは" + input_message + "を宣言した。」";
     // 理解した。HTMLの部分を変えて出力している
 
     var number = Math.floor(Math.random() * 6);
@@ -33,11 +33,11 @@
     if(answer === number) {
     message = '「当てられてしまったわ・・・！」魔女を倒した。';
     } else if(answer < number) {
-    message = '残念でした！もっと大きいわ！';
-    message += ' → 正解は' + number;
+    message = '「残念でした！もっと大きいわ！';
+    message += ' 今回の正解は' + number +"よ！」";
 } else if(answer > number) {
-    message = '残念でした！もっと小さいわ！';
-    message += ' → 正解は' + number;
+    message = '「残念でした！もっと小さいわ！';
+    message += '今回の正解は' + number +"よ！」";
 } else {
     message = '0〜5の数字を入力してね。';
 }

@@ -1,2 +1,12 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<h1>メンバー</h1>
+<% @users.each do |f| %>
+<%= attachment_image_tag f, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
+<p>名前： <%= f.name %></p>
+<p>自己紹介：<%= f.introduction %></p> 
+<%=link_to "詳細", user_path(f.id) %><br>
+<% end %>
+
+<%# なぜか他の人のところでも自分が出る問題 %>

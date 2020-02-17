@@ -6,4 +6,7 @@ class GamesController < ApplicationController
 
   def push
   end
+
+  def open
+  end
 end

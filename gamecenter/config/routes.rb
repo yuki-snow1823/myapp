@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  post 'games/answer' => 'games#open'
+
   get 'games/answer'
   get 'games/push'
   devise_for :users

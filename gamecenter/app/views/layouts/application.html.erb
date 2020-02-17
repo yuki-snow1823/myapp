@@ -10,11 +10,21 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
+<header>
+    <% if user_signed_in? %>
     <%= link_to "拠点", user_path(current_user.id) %>
     <%= link_to "メンバー", users_path %>
     <%= link_to "逃げる", destroy_user_session_path, method: :delete %>
   <% end %>
+</header>
     <%= yield %>
+
+    <footer>
+      <p>this is a footer.</p>
+    </footer>
   </body>
+  
+
+
+  
 </html>

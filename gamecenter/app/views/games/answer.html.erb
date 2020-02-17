@@ -3,7 +3,7 @@
 <%= image_tag 'game1.png', :size =>'100x100'%>
 
 <h4>魔女が現れた。</h4>
-<h4>1-5の間で、好きな数字を答えよう！</h4>
+<h4>0-5の間で、好きな数字を答えよう！</h4>
 <h4>数字を答える</h3>
 
   <form id="form1" action="#">
@@ -28,7 +28,12 @@
     var message;
 
     if(answer === number) {
-    message = '「当てられてしまったわ・・・！」魔女を倒した。';
+      message = '「当てられてしまったわ・・・！」魔女を倒した。';
+      // 呼び出しだからifの中に入れる
+      postData(`/games/answer`)
+        .then(data => console.log());
+        .catch(error => console.error());
+        // リクエストの中身確認用
     } else if(answer < number) {
     message = '「残念でした！もっと大きいわ！';
     message += ' 今回の正解は' + number +"よ！」";
@@ -40,4 +45,30 @@
 }
     document.getElementById("answer").innerHTML = message;
    }
+
+
+
+// コピペした（理由調べる）
+function postData(url = ``, data = {}) {
+  // 既定のオプションには * が付いています
+    return fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, same-origin, *omit
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
+    })
+    .then(response => response.json()); // レスポンスの JSON を解析
+}
+
 </script>
+
+<%# ここから下は練習と予想 %>
+<%# これを多分倒したのところに書く %>
+<%# fetch([, init]).then(post) %>

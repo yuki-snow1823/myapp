@@ -31,20 +31,20 @@
       message = '「当てられてしまったわ・・・！」魔女を倒した。';
       // 呼び出しだからifの中に入れる
       postData(`/games/answer`)
-        .then(data => console.log());
+        .then(data => console.log())
         .catch(error => console.error());
         // リクエストの中身確認用
     } else if(answer < number) {
     message = '「残念でした！もっと大きいわ！';
     message += ' 今回の正解は' + number +"よ！」";
-} else if(answer > number) {
+    } else if(answer > number) {
     message = '「残念でした！もっと小さいわ！';
     message += '今回の正解は' + number +"よ！」";
-} else {
+    } else {
     message = '0〜5の数字を入力してね。';
-}
-    document.getElementById("answer").innerHTML = message;
-   }
+    }
+   document.getElementById("answer").innerHTML = message;
+     }
 
 
 
@@ -57,6 +57,8 @@ function postData(url = ``, data = {}) {
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, same-origin, *omit
         headers: {
+            "X-CSRF-Token": getCsrfToken(),
+            // トークン取得できるように
             "Content-Type": "application/json; charset=utf-8",
             // "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -67,6 +69,16 @@ function postData(url = ``, data = {}) {
     .then(response => response.json()); // レスポンスの JSON を解析
 }
 
+// コピペ　後で調べる HTMLのメタタグから取ってるらしい
+  const getCsrfToken = () => {
+    const metas = document.getElementsByTagName('meta');
+    for (let meta of metas) {
+        if (meta.getAttribute('name') === 'csrf-token') {
+            return meta.getAttribute('content');
+        }
+    }
+    return '';
+  }
 </script>
 
 <%# ここから下は練習と予想 %>

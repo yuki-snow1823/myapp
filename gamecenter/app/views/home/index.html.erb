@@ -1,10 +1,13 @@
 
- <div class="container startPage">
+ <div class="container1 startPage">
   <div class="row">
-      <h1 class="col-6 text-center">魔王城</h1>
+      <h1 class="col-md-9 text-center" id="title">魔王城</h1>
   </div>
+
   <div class="row">
-    <p class="col-6 text-center"><%= link_to "突入する", new_user_session_path %></p>
-    <p class="col-6 text-center"><%= link_to "新規登録", new_user_registration_path %></p>
+    <%# <p class="ml-md-50 mt-md-50 sub-title"><%= link_to "突入する", new_user_session_path %>
+      <span class="btn btn-warning col-sm-2 offset-sm-3 mr-2"><%= link_to "突撃する", new_user_session_path, :style=>"color:white;" %></span>
+      <span class="btn btn-success col-sm-2"><%= link_to "新規登録", new_user_registration_path, :style=>"color:white;" %></span>
   </div>
+
  </div>

@@ -1,15 +1,30 @@
 <% if @user.id == current_user.id %>
-<h1>拠点</h1>
-<h2>ステータス</h2>
+  <h1 class="text-center">拠点</h1>
+
+
+  <div class="container card text-black">
+    <div class="row">
 <% end %>
+      <div class="col-sm-4 offset-sm-3">
+      <h2>ステータス</h2>
+        <p>名前： <%= @user.name %></p>
+        <%= attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%>
+        <P>自己紹介：<%= @user.introduction %></p> 
+      </div>
 
-<p>名前： <%= @user.name %></p><br>
-<%= attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%>
-<P>自己紹介：<%= @user.introduction %></p> 
 
-
+      <div class="col-sm-4">
 <% if @user.id == current_user.id %>
-  <%= link_to "ステータス編集", edit_user_path %>
-  <%= link_to "魔女と戦う", games_answer_path %>
-  <%= link_to "悪魔と戦う", games_push_path %>
+<ul>
+  <li><span class="btn btn-success"><%= link_to "ステータス編集", edit_user_path, :style=>"color:white;" %></span></li>
+  <li><span class="btn btn-warning"><%= link_to "魔女と戦う", games_answer_path, :style=>"color:white;" %></span></li>
+  <li><span class="btn btn-warning"><%= link_to "悪魔と戦う", games_push_path, :style=>"color:white;" %></span></li>
+<% if @user.status == 1%>
+  <li><span class="btn btn-danger"><%= link_to "魔王と戦う", games_push_path, :style=>"color:white;"%></span></li>
+</ul>
 <% end %>
+<% end %>
+
+      </div>
+    </div>
+  </div>

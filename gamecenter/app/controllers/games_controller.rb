@@ -4,9 +4,9 @@ class GamesController < ApplicationController
   def answer
   end
 
-  def push
+  def maou
   end
-
+   
   # 魔王への扉
   # どんなに勝っても１しか増えず、悪魔に勝ってから戦っても１にならないようにしたい
   def open

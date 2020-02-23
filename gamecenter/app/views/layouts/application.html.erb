@@ -10,14 +10,17 @@
   </head>
 
   <body>
-<header>
-    <% if user_signed_in? %>
-    <%= link_to "拠点", user_path(current_user.id) %>
-    <%= link_to "メンバー", users_path %>
-    <%= link_to "逃げる", destroy_user_session_path, method: :delete %>
+<header class="navbar navbar-dark bg-dark p-0 mb-3">
+<%# 多分html黒が優先されている %>
+  <% if user_signed_in? %>
+  <ul class="ul p-0">
+    <li><%= link_to "拠点", user_path(current_user.id), :style=>"color:white;" %></li>
+    <li><%= link_to "メンバー", users_path, :style=>"color:white;" %></li>
+    <li><%= link_to "逃げる", destroy_user_session_path, method: :delete, :style=>"color:white;" %></li>
+  </ul>
   <% end %>
 </header>
-    <%= yield %>
+    <div class="h-100"><%= yield %></div>
 
     <footer>
       <p>COPYRIGHT ®︎ Horikoshi Yuki ALL RIGHTS RESERVED. </p>

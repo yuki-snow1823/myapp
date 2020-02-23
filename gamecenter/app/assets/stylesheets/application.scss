@@ -15,9 +15,15 @@
 
  @import "bootstrap";            /*ここを追加*/
 
- body{
-   height: 100vh;
+ *{
+   color: white;
  }
+
+//  高さをブラウザ幅にしたい
+ html, body {
+  height:100% !important;
+  background-color: black;
+}
 
  footer{
    background-color: black;
@@ -45,4 +51,53 @@
 
 li{
   list-style: none;
+}
+
+header{
+  padding: 0;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+.status{
+  border: solid 1px white;
+  border-right: none;
+}
+
+.menu{
+  border: solid 1px white;
+  border-left: none;
+}
+
+.flex2{
+  display: flex;
+  justify-content: center;
+}
+
+.flex-items{
+  border: solid 1px white;
+  padding: 5px;
+  background-color: rgb(151, 63, 151);
+}
+
+input {
+  color: black !important;
+}
+
+textarea {
+  color: black !important;
+}
+
+.edit{
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+header li {
+  float: left;
+  padding-left: 20px;
+  padding-top: 10px;
 }

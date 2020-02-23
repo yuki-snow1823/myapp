@@ -1,9 +1,27 @@
-<h1>仲間</h1>
-<% @users.each do |f| %>
-<%= attachment_image_tag f, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
-<p>名前： <%= f.name %></p>
-<p>自己紹介：<%= f.introduction %></p> 
-<%=link_to "詳細", user_path(f.id) %><br>
-<% end %>
+<div class="container text-white">
+ <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <table class="table-dark border">
+        <h2 class="text-center">メンバー</h2>
+        <thead class="border">
+          <th class="pl-1">写真</th>
+          <th>名前</th>
+          <th>自己紹介</th>
+          <th>詳細</th>
+        </thead>
 
+          <% @users.each do |f| %>
+        <tr class="border">
+            <td class="pr-2"><%= attachment_image_tag f, :user_image, :fill, 100, 100, fallback: "no_image.jpg"%></td>
+            <td class="pr-2"><%= f.name %></td>
+            <td class="pr-2"><%= f.introduction %></td>
+            <td class="pr-2"><%=link_to "詳細", user_path(f.id) %></td>
+        </tr>
+          <% end %>
+
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
 <%# なぜか他の人のところでも自分が出る問題 %>
